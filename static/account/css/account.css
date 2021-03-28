@@ -1,12 +1,12 @@
 
-#content {
+#main_page__content {
     /* display: table-cell; */
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#first_column {
+#main_page__first_column {
     /* position: absoluted; */
     /* float: left; */
     display: inline-block;
@@ -15,7 +15,7 @@
     width: 55%;
 }
 
-#second_column {
+#main_page__second_column {
     /* float: right; */
     display: inline-block;
     align-content: center;
@@ -23,5 +23,9 @@
 }
 
 .register_header {
+    text-align: center;
+}
+
+.login_header {
     text-align: center;
 }

@@ -10,17 +10,15 @@
 {% endblock %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-
-  {% else %}
-
-    <div id="first_column">
+  <div id='main_page__content'>
+    <div id="main_page__first_column">
       <h1>
         Welcome to the site
       </h1>
     </div>
 
-    <div id="second_column">
+    <div id="main_page__second_column">
+      <h2 class="login_header">Sign in</h2>
       <form method="post">
         <table>
           {{ form_login.as_table }}
@@ -38,7 +36,6 @@
         <input type="submit" value="Register">
       </form>
     </div>
-      
-  {% endif %}
+  </div>
 
 {% endblock %}
