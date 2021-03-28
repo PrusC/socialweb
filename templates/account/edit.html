@@ -10,18 +10,19 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Edit your profile</h1>
-  <p>You can edit your profile using the following form:</p>
-  <form method='post' enctype='multipart/form-data'>
-    <table>
-      {{ user_form.as_table }}
-      {{ profile_form.as_table }}
-      {% csrf_token %}
-    </table>
-    <p>
-      <input class="save_changes button" type="submit" value="Save changes">
-      <a href="{% url 'account:main_page' %}">Go back</a>
-    </p>
-  </form>
-  
+  <div id='profile-edit__content'>
+    <h1>Edit your profile</h1>
+    <p>You can edit your profile using the following form:</p>
+    <form method='post' enctype='multipart/form-data'>
+      <table>
+        {{ user_form.as_table }}
+        {{ profile_form.as_table }}
+        {% csrf_token %}
+      </table>
+      <p>
+        <input class="save_changes button" type="submit" value="Save changes">
+        <a href="{% url 'account:main_page' %}">Go back</a>
+      </p>
+    </form>
+  </div> 
 {% endblock %}
