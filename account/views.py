@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, views as auth_views
+from django.contrib.auth import mixins as auth_mixins
 from django.urls.base import reverse
 from django.contrib import messages
 
@@ -47,3 +48,7 @@ def main_page(request):
 
 def  profile(request):
     return render(request, 'account/profile.html')
+
+
+class UserLogoutView(auth_mixins.LoginRequiredMixin, auth_views.LogoutView):
+    redirect_field_name = 'account/main_page.html'

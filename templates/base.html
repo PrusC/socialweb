@@ -19,7 +19,7 @@
           {% else %}
             {{user}}, 
           {% endif %}
-          <a href="#">Logout</a>
+          <a href="{% url 'account:logout' %}">Logout</a>
         {% endif %}
       </span>
 
