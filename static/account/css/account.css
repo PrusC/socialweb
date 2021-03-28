@@ -1,0 +1,27 @@
+
+#content {
+    /* display: table-cell; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#first_column {
+    /* position: absoluted; */
+    /* float: left; */
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    width: 55%;
+}
+
+#second_column {
+    /* float: right; */
+    display: inline-block;
+    align-content: center;
+    width: 35%;
+}
+
+.register_header {
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>
+      {% block title %} {% endblock %}
+    </title>
+
+    {% block style %} {% endblock %}
+  </head>
+  <body>
+    <div id="header">
+      <span class="logo"><a href="{% url 'account:main_page' %}">SocialWebsite</a></span>
+
+      <span class='user'>
+        {% if user.is_authenticated %}
+          {% if user.first_name %}
+            {{user.first_name}}, 
+          {% else %}
+            {{user}}, 
+          {% endif %}
+          <a href="#">Logout</a>
+        {% endif %}
+      </span>
+
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li class = "{{ message.tag }}">
+              {{ message }}
+              {% comment %} <a href="#" class="close">x</a> {% endcomment %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div id="content">
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>
