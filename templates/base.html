@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+        <title>
+        {% block title %} {% endblock %}
+        </title>
+        {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> {% endcomment %}
+        {% load static %}
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+        {% block style %} {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class='container-fluid'>
+            <a class="navbar-brand logo" href="{% url 'account:main_page' %}">
+            Social Web
+            </a>
+            {% if user.is_authenticated %}
+            <div class='user'>
+                {% if user.first_name %}
+                {{user.first_name}}, 
+                {% else %}
+                {{user}}, 
+                {% endif %}
+                <a href="{% url 'account:logout' %}">Logout</a>
+            </div>
+            {% endif %}
+        </div>
+        </nav>
+        
+        {% if messages %}
+        <div class='messages'>
+            {% bootstrap_messages %} 
+        </div>
+        {% endif %}
+
+        <div id="content">
+            {% block content %} {% endblock %}
+        </div>
+    </body>
+</html>

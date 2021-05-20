@@ -1,0 +1,38 @@
+
+#main_page__content {
+    /* display: table-cell; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#main_page__first_column {
+    /* position: absoluted; */
+    /* float: left; */
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    width: 55%;
+    padding: 20px;
+}
+
+#main_page__second_column {
+    /* float: right; */
+    display: inline-block;
+    align-content: center;
+    width: 35%;
+    padding: 20px;
+}
+
+.register_header {
+    text-align: center;
+}
+
+.login_header {
+    text-align: center;
+}
+
+#profile-edit__content {
+    display: block;
+    align-content: center;
+}
