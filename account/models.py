@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 
+
 USER_MODEL = get_user_model()
 
 
@@ -36,4 +37,3 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=USER_MODEL)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-

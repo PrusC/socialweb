@@ -13,6 +13,7 @@
     align-content: center;
     text-align: center;
     width: 55%;
+    padding: 20px;
 }
 
 #main_page__second_column {
@@ -20,6 +21,7 @@
     display: inline-block;
     align-content: center;
     width: 35%;
+    padding: 20px;
 }
 
 .register_header {
@@ -28,4 +30,9 @@
 
 .login_header {
     text-align: center;
+}
+
+#profile-edit__content {
+    display: block;
+    align-content: center;
 }

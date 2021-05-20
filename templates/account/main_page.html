@@ -4,38 +4,39 @@
   Welcome!
 {% endblock %}
 
+{% load bootstrap4 %}
 {% load static %}
 {% block style %}
-  <link rel="stylesheet" href="{% static 'account/css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/account.css' %}">
 {% endblock %}
 
 {% block content %}
-  <div id='main_page__content'>
-    <div id="main_page__first_column">
-      <h1>
-        Welcome to the site
-      </h1>
-    </div>
+    <div id='main_page__content'>
+        <div id="main_page__first_column">
+            <h1>Welcome to the site</h1>
 
-    <div id="main_page__second_column">
-      <h2 class="login_header">Sign in</h2>
-      <form method="post">
-        <table>
-          {{ form_login.as_table }}
-          {% csrf_token %}
-        </table>
-        <input type="submit" value="Log in">
-      </form>
+            <div class='main_page__weather alert alert-info'>
+                City: {{ info.city }}<br>
+                Temperature: {{ info.temp }} <sup>o</sup>C<br>
+                <img class='img' src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Weather photo">
+            </div>
+        </div>
 
-      <h2 class="register_header">Sign up for The Site</h2>
-      <form method="post">
-        <table>
-          {{ form_registration.as_table }}
-          {% csrf_token %}
-        </table>
-        <input type="submit" value="Register">
-      </form>
+        <div id="main_page__second_column">
+        <h2 class="login_header">Sign in</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form_login layout='horizontal' %}
+            <button type="submit" class="btn btn-light" >Log in</button>
+        </form>
+        <h2 class="register_header">Sign up for The Site</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form_registration layout='horizontal' %}
+            <button type="submit" class="btn btn-light">Register</button>
+        </form>
+        </div>
+
     </div>
-  </div>
 
 {% endblock %}

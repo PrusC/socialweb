@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Photo detail
+{% endblock %}
+
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+    <div class='containter'>
+        <div class='row row-cols-1 row-cols-sm-2'>
+            <div class='col-6'>
+                <div class='image card'>
+                    <img src="{{ object.image.url }}" class='card-img-top' alt="Test image">
+                    <p class='card-text'>{{ object.description }}</p>
+                </div>
+            </div>
+            <div class='col-6'>
+                <h4>Comments</h4>
+                <ul class='comments list-group list-group-flush'>
+                    {% for comment in comments %}
+                        <li class='list-group-item'>
+                            <div class='col-3'>
+                                <div class='card'>
+                                    
+                                </div>
+                            </div>
+                            <div class='comment-date'>
+                                <p>{{ comment.date_created }}</p>
+                            </div>
+                            <div class='comment-text'>
+                                <p>{{ comment.comment }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
